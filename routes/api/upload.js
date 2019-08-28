@@ -27,8 +27,6 @@ router.post('/', (req, res) => {
   Promise
     .all(promises)
     .then(image => {
-        //console.log(image[0].info.categorization.aws_rek_tagging.data),
-
         client.index({  
             index: 'rekognition',
             id: image[0].public_id,

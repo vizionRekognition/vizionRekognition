@@ -77,7 +77,7 @@ export default class App extends Component {
         images
       })
 
-      console.log(images[0].info.categorization.aws_rek_tagging.data)
+      //console.log(images[0].info.categorization.aws_rek_tagging.data)
     })
     .catch(err => {
       err.json().then(e => {
