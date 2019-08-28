@@ -69,13 +69,15 @@ export default class App extends Component {
       if (!res.ok) {
         throw res
       }
-      return res.json();
+      return res.json()
     })
     .then(images => {
       this.setState({
         uploading: false, 
         images
       })
+
+      console.log(images[0].info.categorization.aws_rek_tagging.data)
     })
     .catch(err => {
       err.json().then(e => {
@@ -84,6 +86,7 @@ export default class App extends Component {
       })
     })
   }
+
 
   filter = id => {
     return this.state.images.filter(image => image.public_id !== id)
