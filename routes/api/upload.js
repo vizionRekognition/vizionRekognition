@@ -14,10 +14,10 @@ cloudinary.config({
 router.post('/', (req, res) => {
   const values = Object.values(req.files)
   const promises = values.map(image => cloudinary.uploader.upload(image.path, 
-    // { 
-    //   categorization: "aws_rek_tagging",
-    //   auto_tagging: 0.7  
-    // }
+    { 
+      categorization: "aws_rek_tagging",
+      auto_tagging: 0.7  
+    }
   ))
 
   Promise
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
             "etag": image[0].tags,
             "url": image[0].url,
             "secure_url": image[0].secure_url,
-            //"results": image[0].info.categorization.aws_rek_tagging.data,
+            "results": image[0].info.categorization.aws_rek_tagging.data,
             "city": geoip[0].city,
             "country": geoip[0].country,
             "region": geoip[0].subdivisionIso,
