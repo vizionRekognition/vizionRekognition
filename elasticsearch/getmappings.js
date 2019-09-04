@@ -1,7 +1,7 @@
 var client = require('./connection.js');
 
 client.indices.getMapping({  
-    index: 'image',
+    index: 'rekognition',
     type: 'image',
   },
 function (error,response) {  
@@ -9,6 +9,6 @@ function (error,response) {
       console.log(error.message);
     }
     else {
-      console.log("Mappings:\n",response.gov.mappings.constituencies.properties);
+      console.log("Mappings:\n", response.rekognition.mappings.image.properties);
     }
 });
